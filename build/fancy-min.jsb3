@@ -1,0 +1,12 @@
+{
+    "projectName": "Mt JS - RIA javascript library",
+	"builds": [{
+		"name": "Fancy Form compressed",
+        "target": "fancy-class-min.js",
+		"compress": true,
+		"files": [{
+			"path": "/",
+			"name": "fancy-class.js"
+		}]
+	}]
+}
