@@ -107,7 +107,7 @@ Fancy.Event
 
 <script>
 Fancy.Class('Fancy.Window', {
-	extend: Mt.Event,
+	extend: Fancy.Event,
 	constructor: function(){
 		var me = this;
 		
@@ -123,17 +123,17 @@ Fancy.Class('Fancy.Window', {
 	render: function(){
 		var me = this;
 		
-		me.fireEvent('rendered');
+		me.fire('rendered');
 	},
 	show: function(){
 		var me = this;
 		
-		me.fireEvent('show');
+		me.fire('show');
 	},
 	hide: function(){
 		var me = this;
 		
-		me.fireEvent('hide');
+		me.fire('hide');
 	}
 });
 
