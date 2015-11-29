@@ -6,6 +6,7 @@ Debug version - 17 Kb
 Min version - 7 Kb  
 Min and gzipped version - 3 Kb  
 
+Good Sample in real http://fancyjs.com/fancy-class/samples/base/index.html  
 
 #Include
 ``` html
