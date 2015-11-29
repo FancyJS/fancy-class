@@ -1,5 +1,3 @@
-Class
-=====
 Fancy Class is tiny OOP modern library on JavaScript  
 MIT LICENCE  
   
