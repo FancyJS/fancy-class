@@ -1,5 +1,5 @@
 /*!
- * Fancy Class is tiny plugin free OOP modern library on JavaScript
+ * Fancy Class is tiny OOP modern library on JavaScript
  * MIT LICENCE
  */
 
@@ -12,7 +12,8 @@ var Fancy = {
 	 * The version of the framework
 	 * @type String
 	 */
-	version: '0.2.1'
+	version: '0.2.1',
+	global: window
 };
 
 /**
@@ -272,6 +273,8 @@ Fancy.Collection = function(arr){
 };
 
 Fancy.Collection.prototype = {
+
+
 	/**
 	 * Add item over a pair of `key` `value` to collection.
 	 * @params {String} key 

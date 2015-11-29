@@ -12,7 +12,8 @@ var Fancy = {
 	 * The version of the framework
 	 * @type String
 	 */
-	version: '0.2.1'
+	version: '0.2.1',
+	global: window
 };
 
 /**
