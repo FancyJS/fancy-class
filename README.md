@@ -43,42 +43,42 @@ Release min
 ``` html
 <script>
 Fancy.Class('Car', {
-	constructor: function(){
-		console.log('Car constructor');
-	},
-	name: 'Car',
-	run: function(km){
-		console.log('I am '+ this.name + ' run ' + 'on ' + km + '/h');
-	},
-	getName: function(){
-		console.log(this.name);
-	}
+  constructor: function(){
+  console.log('Car constructor');
+},
+  name: 'Car',
+  run: function(km){
+	console.log('I am '+ this.name + ' run ' + 'on ' + km + '/h');
+  },
+  getName: function(){
+	console.log(this.name);
+  }
 });
 
 Fancy.Class('AverageCar', {
-	extend: Car,
-	name: 'AverageCar',
-	constructor: function(){
-		console.log('AverageCar constructor');
-		this.Super('constructor', arguments);
-	},
-	run: function(){
-		console.log('cool');
-		this.Super('run', arguments);
-	}
+  extend: Car,
+  name: 'AverageCar',
+  constructor: function(){
+    console.log('AverageCar constructor');
+	this.Super('constructor', arguments);
+  },
+  run: function(){
+	console.log('cool');
+	this.Super('run', arguments);
+  }
 });
 
 Fancy.Class('SuperCar', {
-	extend: AverageCar,
-	name: 'SuperCar',
-	constructor: function(){
-		console.log('SuperCar constructor');
-		this.Super('constructor', arguments);
-	},
-	run: function(){
-		console.log('runnnnnn');
-		this.Super('run', arguments);
-	}
+  extend: AverageCar,
+  name: 'SuperCar',
+  constructor: function(){
+	console.log('SuperCar constructor');
+	this.Super('constructor', arguments);
+  },
+  run: function(){
+	console.log('runnnnnn');
+	this.Super('run', arguments);
+  }
 });
 
 var s = new SuperCar();
@@ -95,17 +95,17 @@ Singleton
 
 <script>
 Fancy.Class('My.App', {
-	singleton: true,
-	constructor: function(){
-		var me = this;
+  singleton: true,
+  constructor: function(){
+	var me = this;
 		
-	},
-	a: function(){
-		console.log('a');
-	},
-	b: function(){
-		console.log('b');
-	}
+  },
+  a: function(){
+	console.log('a');
+  },
+  b: function(){
+	console.log('b');
+  }
 });
 
 My.App.a();
@@ -120,51 +120,51 @@ Fancy.Event
 
 <script>
 Fancy.Class('Fancy.Window', {
-	extend: Fancy.Event,
-	constructor: function(){
-		var me = this;
+  extend: Fancy.Event,
+  constructor: function(){
+	var me = this;
 		
-		this.Super('const', arguments);
-		me.init();
-	},
-	init: function(){
-		var me = this;
+	this.Super('const', arguments);
+	me.init();
+  },
+  init: function(){
+	var me = this;
 		
-		me.addEvent('rendered', 'show', 'hide');
-		me.render();
-	},
-	render: function(){
-		var me = this;
+	me.addEvent('rendered', 'show', 'hide');
+	me.render();
+  },
+  render: function(){
+	var me = this;
 		
-		me.fire('rendered');
-	},
-	show: function(){
-		var me = this;
+	me.fire('rendered');
+  },
+  show: function(){
+	var me = this;
 		
-		me.fire('show');
-	},
-	hide: function(){
-		var me = this;
+	me.fire('show');
+  },
+  hide: function(){
+	var me = this;
 		
-		me.fire('hide');
-	}
+	me.fire('hide');
+  }
 });
 
 var w = new Fancy.Window({
-	title: 'Title',
-	listeners: [{
-		rendered: function(){
-			console.log('rendered');
-		}
-	},{
-		show: function(){
-			console.log('show');
-		}
-	}]
+  title: 'Title',
+  listeners: [{
+	rendered: function(){
+	  console.log('rendered');
+	}
+  },{
+	show: function(){
+	  console.log('show');
+	}
+  }]
 });
 
 w.on('hide', function(){
-	console.log('hide');
+  console.log('hide');
 });
 </script>
 ```
