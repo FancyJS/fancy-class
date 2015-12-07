@@ -8,6 +8,19 @@ Min and gzipped version - 3 Kb
 
 Good Sample in real http://fancyjs.com/fancy-class/samples/base/index.html  
 
+##Build
+
+```sh
+$ npm install
+```
+
+```sh
+$ grunt prod
+//or
+$ grunt dev
+```
+
+
 #Include
 ``` html
 Debug
@@ -19,7 +32,7 @@ Release
 ```
 ``` html
 Release min
-<script src="../build/fancy-class-min.js"></script>
+<script src="../build/fancy-class.min.js"></script>
 ```
 
 

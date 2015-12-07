@@ -1,0 +1,14 @@
+{
+  "name":"Fancy-Class",
+  "version":"0.0.21",
+  "license":"MIT",
+  "files": [{
+    "path": "./src/core/Fancy.js"
+  },{
+    "path": "./src/util/Collection.js"
+  },{
+    "path": "./src/core/Class.js"
+  },{
+    "path": "./src/util/Event.js"
+  }]
+}

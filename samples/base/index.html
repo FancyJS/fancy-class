@@ -1,160 +1,160 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Fancy Class</title>
-	
-	<script src="/build/fancy-class.js"></script>
-	
-	<style>
-		body {
-			margin: 0px;
-			padding: 0px;
-		}
-		
-		.transport {
-			border: 1px solid #cdd8e0;
-			background-color: #e6ecf1;
-			font-size: 12px;
-			font-family: Lucida Grande, verdana, tahoma, arial, sans-serif, Lucida Sans;
-			color: #4c6b8f;
-			border-radius: 2px;
-			width: 145px;
-			height: 90px;
-			overflow: hidden;
-		}
-	</style>
-	
-	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-	
+  <title>Fancy Class</title>
+  
+  <script src="/build/fancy-class.js"></script>
+  
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+    
+    .transport {
+      border: 1px solid #cdd8e0;
+      background-color: #e6ecf1;
+      font-size: 12px;
+      font-family: Lucida Grande, verdana, tahoma, arial, sans-serif, Lucida Sans;
+      color: #4c6b8f;
+      border-radius: 2px;
+      width: 145px;
+      height: 90px;
+      overflow: hidden;
+    }
+  </style>
+  
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  
 </head>
 <body>
 
 <div style="margin: 20px 20px 20px;">
-	<div id="truck"></div>
-	<div id="copter"></div>
-	<div id="plane"></div>
-	
-	<div style="margin-top: 50px;"> 
-		<button onclick="run()">Run</button>
-	</div>
-	
+  <div id="truck"></div>
+  <div id="copter"></div>
+  <div id="plane"></div>
+  
+  <div style="margin-top: 50px;"> 
+    <button onclick="run()">Run</button>
+  </div>
+  
 <script id="script-id">
-	Fancy.Class('Transport', {
-		extend: Fancy.Event,
-		title: 'Transport',
-		velocity: 30,
-		cls: 'transport',
-		constructor: function(){
-			var me = this;
-			
-			me.Super('constructor', arguments);
-			me.init();
-		},
-		init: function(){
-			var me = this;
-			
-			me.addEvents('start', 'stop');
-			me.render();
-			me.ons();
-		},
-		render: function(){
-			var me = this;
-			
-			me.el = $('#'+me.id).append(
-				[
-					'<div class="transport">',
-						'<div style="text-align: center;">'+me.title+'</div>',
-						'<div>',
-							'<img src="'+me.img+'">',
-						'</div>',
-					'</div>'
-				].join("")
-			);
-			
-			me.el.css({
-				'margin-top': '10px'
-			});
-		},
-		run: function(){
-			var me = this,
-				duration = 6000/(me.velocity/30);
-			
-			var t = new Date();
-			me.fire('start');
-			me.el.animate({
-				'margin-left': 1000
-			}, duration, function(){
-				me.fire('stop');
-			});
-		},
-		ons: function(){
-			var me = this;
-			
-			me.on('start', function(){
-				console.log(me.title + ' start');
-			});
-			
-			me.on('stop', function(){
-				console.log(me.title + ' stop');
-			});
-		}
-	});
-	
-	Fancy.Class('Truck', {
-		extend: Transport,
-		title: 'Truck',
-		img: 'images/truck.jpg',
-		velocity: 60,
-		constructor: function(){
-			var me = this;
-			
-			me.Super('constructor', arguments);
-		}
-	});	
-	
-	Fancy.Class('Copter', {
-		extend: Transport,
-		title: 'Copter',
-		img: 'images/copter.jpg',
-		velocity: 300,
-		constructor: function(){
-			var me = this;
-			
-			me.Super('constructor', arguments);
-		}
-	});	
-	
-	Fancy.Class('Plane', {
-		extend: Transport,
-		title: 'Plane',
-		img: 'images/plane.jpg',
-		velocity: 1000,
-		constructor: function(){
-			var me = this;
-			
-			me.Super('constructor', arguments);
-		}
-	});	
-	
-	window.onload = function(){
-		t = new Truck({
-			id: 'truck'
-		});
-		
-		p = new Plane({
-			id: 'plane'
-		});
-		
-		c = new Copter({
-			id: 'copter'
-		});
-	}
-	
-	function run(){
-		t.run();
-		p.run();
-		c.run();	
-	}
+  Fancy.Class('Transport', {
+    extend: Fancy.Event,
+    title: 'Transport',
+    velocity: 30,
+    cls: 'transport',
+    constructor: function(){
+      var me = this;
+      
+      me.Super('constructor', arguments);
+      me.init();
+    },
+    init: function(){
+      var me = this;
+      
+      me.addEvents('start', 'stop');
+      me.render();
+      me.ons();
+    },
+    render: function(){
+      var me = this;
+      
+      me.el = $('#'+me.id).append(
+        [
+          '<div class="transport">',
+            '<div style="text-align: center;">'+me.title+'</div>',
+            '<div>',
+              '<img src="'+me.img+'">',
+            '</div>',
+          '</div>'
+        ].join("")
+      );
+      
+      me.el.css({
+        'margin-top': '10px'
+      });
+    },
+    run: function(){
+      var me = this,
+        duration = 6000/(me.velocity/30);
+      
+      var t = new Date();
+      me.fire('start');
+      me.el.animate({
+        'margin-left': 1000
+      }, duration, function(){
+        me.fire('stop');
+      });
+    },
+    ons: function(){
+      var me = this;
+      
+      me.on('start', function(){
+        console.log(me.title + ' start');
+      });
+      
+      me.on('stop', function(){
+        console.log(me.title + ' stop');
+      });
+    }
+  });
+  
+  Fancy.Class('Truck', {
+    extend: Transport,
+    title: 'Truck',
+    img: 'images/truck.jpg',
+    velocity: 60,
+    constructor: function(){
+      var me = this;
+      
+      me.Super('constructor', arguments);
+    }
+  });  
+  
+  Fancy.Class('Copter', {
+    extend: Transport,
+    title: 'Copter',
+    img: 'images/copter.jpg',
+    velocity: 300,
+    constructor: function(){
+      var me = this;
+      
+      me.Super('constructor', arguments);
+    }
+  });  
+  
+  Fancy.Class('Plane', {
+    extend: Transport,
+    title: 'Plane',
+    img: 'images/plane.jpg',
+    velocity: 1000,
+    constructor: function(){
+      var me = this;
+      
+      me.Super('constructor', arguments);
+    }
+  });  
+  
+  window.onload = function(){
+    t = new Truck({
+      id: 'truck'
+    });
+    
+    p = new Plane({
+      id: 'plane'
+    });
+    
+    c = new Copter({
+      id: 'copter'
+    });
+  }
+  
+  function run(){
+    t.run();
+    p.run();
+    c.run();  
+  }
 </script>
 </div>
 

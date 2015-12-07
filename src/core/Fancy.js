@@ -8,12 +8,12 @@
  * @singleton
  */
 var Fancy = {
-	/**
-	 * The version of the framework
-	 * @type String
-	 */
-	version: '0.2.1',
-	global: window
+  /**
+   * The version of the framework
+   * @type String
+   */
+  version: '0.2.1',
+  global: window
 };
 
 /**
@@ -23,9 +23,9 @@ var Fancy = {
  * @param {Object} from The primary source of the properties.
  */
 Fancy.apply = function(to, from){
-	for(var p in from){
-		to[p] = from[p];
-	}
+  for(var p in from){
+    to[p] = from[p];
+  }
 };
 
 /**
@@ -35,11 +35,11 @@ Fancy.apply = function(to, from){
  * @param {Object} from The primary source of the properties.
  */
 Fancy.applyIf = function(to, from){
-	for(var p in from){
-		if( to[p] === undefined ){
-			to[p] = from[p];
-		}
-	}
+  for(var p in from){
+    if( to[p] === undefined ){
+      to[p] = from[p];
+    }
+  }
 };
 
 /**
@@ -50,23 +50,23 @@ Fancy.applyIf = function(to, from){
  * @param {String} etc
  */
 Fancy.namespace = function(){
-	var i = 0,
-		iL = arguments.length;
-	
-	for(;i<iL;i++){
-		var value = arguments[i],
-			parts = value.split("."),
-			j = 1,
-			jL = parts.length;
-		
-		Fancy.global[parts[0]] = Fancy.global[parts[0]] || {};
-		var namespace = Fancy.global[parts[0]];
-		
-		for(;j<jL;j++){
-			namespace[parts[j]] = namespace[parts[j]] || {};
-			namespace = namespace[parts[j]];
-		}
-	}
+  var i = 0,
+    iL = arguments.length;
+  
+  for(;i<iL;i++){
+    var value = arguments[i],
+      parts = value.split("."),
+      j = 1,
+      jL = parts.length;
+    
+    Fancy.global[parts[0]] = Fancy.global[parts[0]] || {};
+    var namespace = Fancy.global[parts[0]];
+    
+    for(;j<jL;j++){
+      namespace[parts[j]] = namespace[parts[j]] || {};
+      namespace = namespace[parts[j]];
+    }
+  }
 };
 
 /**
@@ -95,38 +95,38 @@ Fancy.ns = Fancy.namespace;
  * @return {String}
  */
 Fancy.typeOf = function(value){
-	if(value === null) {
-        return 'null';
-	}
+  if(value === null) {
+    return 'null';
+  }
 
-	var type = typeof value;
-	if(type === 'undefined' || type === 'string' || type === 'number' || type === 'boolean') {
-		return type;
-	}
+  var type = typeof value;
+  if(type === 'undefined' || type === 'string' || type === 'number' || type === 'boolean') {
+    return type;
+  }
 
-	var toString = Object.prototype.toString,
-		typeToString = toString.call(value);
+  var toString = Object.prototype.toString,
+    typeToString = toString.call(value);
 
-	switch(typeToString){
-		case '[object Array]':
-			return 'array';
-		case '[object Date]':
-			return 'date';
-		case '[object Boolean]':
-			return 'boolean';
-		case '[object Number]':
-			return 'number';
-		case '[object RegExp]':
-			return 'regexp';
-	}
+  switch(typeToString){
+    case '[object Array]':
+      return 'array';
+    case '[object Date]':
+      return 'date';
+    case '[object Boolean]':
+      return 'boolean';
+    case '[object Number]':
+      return 'number';
+    case '[object RegExp]':
+      return 'regexp';
+  }
 
-	if(type === 'function'){
-		return 'function';
-	}
+  if(type === 'function'){
+    return 'function';
+  }
 
-	if(type === 'object'){
-		return 'object';
-	}
+  if(type === 'object'){
+    return 'object';
+  }
 };
 
 /**
@@ -135,9 +135,9 @@ Fancy.typeOf = function(value){
  * @return {Boolean}
  */
 Fancy.isArray = ('isArray' in Array) ? Array.isArray : function(value){
-	var toString = Object.prototype.toString;
-	
-    return toString.call(value) === '[object Array]';
+  var toString = Object.prototype.toString;
+  
+  return toString.call(value) === '[object Array]';
 };
 
 /**
@@ -146,9 +146,9 @@ Fancy.isArray = ('isArray' in Array) ? Array.isArray : function(value){
  * @return {Boolean}
  */
 Fancy.isObject = function(value){
-	var toString = Object.prototype.toString;
-	
-	return toString.call(value) === '[object Object]';
+  var toString = Object.prototype.toString;
+  
+  return toString.call(value) === '[object Object]';
 };
 
 /**
@@ -157,8 +157,8 @@ Fancy.isObject = function(value){
  * @return {Boolean}
  */
 Fancy.isFunction = function(value){
-	var toString = Object.prototype.toString;
-	
+  var toString = Object.prototype.toString;
+  
     return toString.apply(value) === '[object Function]';
 };
 
@@ -168,7 +168,7 @@ Fancy.isFunction = function(value){
  * @return {Boolean}
  */
 Fancy.isString = function(value){
-    return typeof value === 'string';
+  return typeof value === 'string';
 };
 
 /**
@@ -186,7 +186,7 @@ Fancy.isNumber = function(v){
  * @return {Boolean}
  */
 Fancy.isBoolean = function(value){
-    return typeof value === 'boolean';
+  return typeof value === 'boolean';
 };
 
 /**
@@ -197,26 +197,26 @@ Fancy.isBoolean = function(value){
  * @return See description for the fn parameter.
  */
 Fancy.each = function(arrayObject, fn){
-	var a = arrayObject,
-		type = Fancy.typeOf(arrayObject);
+  var a = arrayObject,
+    type = Fancy.typeOf(arrayObject);
 
-	switch(type){
-		case 'array':
-			var i = 0,
-				iL = a.length;
+  switch(type){
+    case 'array':
+      var i = 0,
+        iL = a.length;
 
-			for(;i<iL;i++){
-				fn(arrayObject[i], i, arrayObject);
-			}
-			break;
-		case 'object':
-			var p;
+      for(;i<iL;i++){
+        fn(arrayObject[i], i, arrayObject);
+      }
+      break;
+    case 'object':
+      var p;
 
-			for(p in arrayObject){
-				fn(arrayObject[p], p, arrayObject);
-			}
-			break;
-	}
+      for(p in arrayObject){
+        fn(arrayObject[p], p, arrayObject);
+      }
+      break;
+  }
 };
 
 /**
@@ -227,17 +227,17 @@ Fancy.each = function(arrayObject, fn){
  * @return {Object}
  */
 Fancy.applyConfig = function(object, config){
-	var property,
-		config = config || {};
-	
-	if(object._isConfigApplied === true){
-		return object;
-	}
-	
-    for(property in config){
-		object[property] = config[property];
-    }
-	object._isConfigApplied = true;
-	
+  var property,
+    config = config || {};
+  
+  if(object._isConfigApplied === true){
     return object;
+  }
+  
+  for(property in config){
+    object[property] = config[property];
+  }
+  object._isConfigApplied = true;
+  
+  return object;
 };
