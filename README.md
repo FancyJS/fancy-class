@@ -1,7 +1,7 @@
 Fancy Class is tiny OOP modern library on JavaScript  
 MIT LICENCE  
   
-Version - 0.0.21  
+Version - 0.2.2  
 Debug version - 17 Kb  
 Min version - 7 Kb  
 Min and gzipped version - 3 Kb  
