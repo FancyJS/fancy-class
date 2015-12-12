@@ -44,8 +44,8 @@ Release min
 <script>
 Fancy.Class('Car', {
   constructor: function(){
-  console.log('Car constructor');
-},
+    console.log('Car constructor');
+  },
   name: 'Car',
   run: function(km){
 	console.log('I am '+ this.name + ' run ' + 'on ' + km + '/h');
