@@ -1,6 +1,6 @@
 {
   "name": "FancyClass",
-  "version": "0.0.21",
+  "version": "0.2.2",
   "devDependencies": {
     "chalk": "^0.5.1",
     "grunt": "~0.4.5",

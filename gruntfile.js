@@ -71,13 +71,13 @@ module.exports = function(grunt){
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('gruntConfig.json'),
 		build_standalone_file: {
-			zg: {
+			fancy: {
 				src: "<%= pkg.files %>",
 				dest: "./build/fancy-class.js"
 			}
 		},
 		uglify: {
-			zg: {
+			fancy: {
 				files: [{
 					"./build/fancy-class.min.js": ["./build/fancy-class.js"]
 				}]
@@ -88,7 +88,7 @@ module.exports = function(grunt){
 				license: "<%= pkg.license %>",
 				version: "<%= pkg.version %>"
 			},
-			zg: {
+			fancy: {
 				src: "fancy-class.min.js"
 			}
 		},
@@ -119,6 +119,6 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-bump');
 
-  grunt.registerTask('dev', ['build_standalone_file:zg']);
-	grunt.registerTask('prod', ['dev', 'uglify:zg', 'clean']);
+  grunt.registerTask('dev', ['build_standalone_file:fancy']);
+	grunt.registerTask('prod', ['dev', 'uglify:fancy', 'clean']);
 };
